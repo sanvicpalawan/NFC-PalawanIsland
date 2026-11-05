@@ -52,6 +52,19 @@ const solutionOptions = [
   "Hardware order",
 ] as const;
 
+/**
+ * Mirrors the varchar limits in src/db/schema.ts. Applied to the inputs so a
+ * longer value is stopped at the field rather than rejected server-side.
+ */
+const MAX_LENGTH = {
+  businessName: 255,
+  contactName: 255,
+  email: 255,
+  phone: 100,
+  location: 255,
+  message: 20000,
+} as const;
+
 const SOLUTION_GROUPS: { label: string; hint: string; items: string[] }[] = [
   {
     label: "Hospitality & guest experience",
@@ -321,6 +334,7 @@ export function LeadInquiryForm() {
               </label>
               <input
                 type="text"
+                maxLength={MAX_LENGTH.location}
                 placeholder="El Nido, Palawan"
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
@@ -338,6 +352,7 @@ export function LeadInquiryForm() {
               <input
                 type="text"
                 required
+                maxLength={MAX_LENGTH.businessName}
                 placeholder="Bacuit Bay Eco Resort"
                 value={formData.businessName}
                 onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
@@ -351,6 +366,7 @@ export function LeadInquiryForm() {
               <input
                 type="text"
                 required
+                maxLength={MAX_LENGTH.contactName}
                 placeholder="Maria Santos"
                 value={formData.contactName}
                 onChange={(e) => setFormData({ ...formData, contactName: e.target.value })}
@@ -367,6 +383,7 @@ export function LeadInquiryForm() {
               <input
                 type="email"
                 required
+                maxLength={MAX_LENGTH.email}
                 placeholder="operations@resort.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -379,6 +396,7 @@ export function LeadInquiryForm() {
               </label>
               <input
                 type="tel"
+                maxLength={MAX_LENGTH.phone}
                 placeholder="+63 917 123 4567"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -663,6 +681,7 @@ export function LeadInquiryForm() {
             </label>
             <textarea
               rows={4}
+              maxLength={MAX_LENGTH.message}
               placeholder="Tell us about your business, the workflows you want to connect, and your timeline."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
