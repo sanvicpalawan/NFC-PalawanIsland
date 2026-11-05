@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCurrentAdmin } from "@/lib/auth";
-import path from "path";
-import fs from "fs/promises";
+import { db } from "@/db";
+import { mediaItems, uploadedFiles } from "@/db/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -12,13 +12,12 @@ const ALLOWED_IMAGE = new Set([
   "image/webp",
   "image/gif",
   "image/svg+xml",
+  "image/avif",
 ]);
 const ALLOWED_PDF = new Set(["application/pdf"]);
 const ALLOWED = new Set([...ALLOWED_IMAGE, ...ALLOWED_PDF]);
 
-function sanitize(name: string) {
-  return name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 80);
-}
+const MAX_BYTES = 8 * 1024 * 1024;
 
 export async function POST(req: Request) {
   const admin = await getCurrentAdmin();
@@ -41,31 +40,49 @@ export async function POST(req: Request) {
       );
     }
 
-    if (file.size > 8 * 1024 * 1024) {
+    if (file.size > MAX_BYTES) {
       return NextResponse.json({ error: "File too large (max 8MB)" }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const fileName = (file.name || "upload").slice(0, 255);
 
-    const ext = path.extname(file.name) || (file.type === "image/jpeg" ? ".jpg" : file.type === "application/pdf" ? ".pdf" : ".bin");
-    const base = sanitize(path.basename(file.name, ext)) || "upload";
-    const fname = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${base}${ext}`;
+    // Store the bytes in the database and hand back a stable URL. Writing to
+    // `public/uploads` would fail on a serverless host and the file would not
+    // be served even if it succeeded.
+    const inserted = await db
+      .insert(uploadedFiles)
+      .values({
+        fileName,
+        mimeType: file.type,
+        fileSize: buffer.length,
+        data: buffer,
+      })
+      .returning({ id: uploadedFiles.id });
 
-    const uploadDir = path.join(process.cwd(), "public", "uploads");
-    await fs.mkdir(uploadDir, { recursive: true });
+    const url = `/api/files/${inserted[0].id}`;
 
-    const fullPath = path.join(uploadDir, fname);
-    await fs.writeFile(fullPath, buffer);
-
-    const url = `/uploads/${fname}`;
+    // Register it in the media library so it is visible and reusable. A
+    // failure here must not lose the upload itself.
+    try {
+      await db.insert(mediaItems).values({
+        fileName,
+        url,
+        fileSize: buffer.length,
+        mimeType: file.type,
+        altText: null,
+        category: "upload",
+      });
+    } catch (registerError) {
+      console.error("media registration failed (file stored)", registerError);
+    }
 
     return NextResponse.json({
       success: true,
       url,
-      fileName: file.name,
+      fileName,
       mimeType: file.type,
-      size: file.size,
+      size: buffer.length,
     });
   } catch (e: any) {
     console.error("upload error", e);

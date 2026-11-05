@@ -7,7 +7,22 @@ import {
   integer,
   timestamp,
   jsonb,
+  customType,
 } from "drizzle-orm/pg-core";
+
+/**
+ * Raw binary column.
+ *
+ * Uploaded files are kept in the database rather than on disk: a serverless
+ * host has a read-only, ephemeral filesystem, so anything written to
+ * `public/uploads` is lost and cannot be served. Reads happen through
+ * `/api/files/[id]`.
+ */
+const bytea = customType<{ data: Buffer; driverData: Buffer }>({
+  dataType() {
+    return "bytea";
+  },
+});
 
 export const admins = pgTable("admins", {
   id: serial("id").primaryKey(),
@@ -141,6 +156,15 @@ export const mediaItems = pgTable("media_items", {
   mimeType: varchar("mime_type", { length: 100 }),
   altText: varchar("alt_text", { length: 255 }),
   category: varchar("category", { length: 100 }).default("general"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const uploadedFiles = pgTable("uploaded_files", {
+  id: serial("id").primaryKey(),
+  fileName: varchar("file_name", { length: 255 }).notNull(),
+  mimeType: varchar("mime_type", { length: 100 }).notNull(),
+  fileSize: integer("file_size").notNull(),
+  data: bytea("data").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

@@ -82,13 +82,22 @@ from `public/`.
 
 ## Media
 
-Uploads go through `/api/admin/upload`, which requires an authenticated session, allow-lists image
-and PDF MIME types, caps files at 8 MB and writes sanitised, collision-resistant filenames into
-`public/uploads/`.
+Uploads go through `/api/admin/upload`, which allow-lists image and PDF MIME types, caps files at
+8 MB and stores the bytes in the `uploaded_files` table. Every upload is also registered in
+`media_items` so it appears in the media library.
 
-> **Scaling note.** `public/uploads/` is container-local. A multi-instance or rebuilt deployment
-> loses uploaded files unless the directory is a mounted volume. Use a bind mount today, or move
-> to object storage before running more than one instance.
+Files are served by `/api/files/<id>`, which returns the stored content type and an immutable
+one-year cache header — rows are never rewritten, so a URL can never point at different content.
+
+> **Why the database rather than disk.** The original implementation wrote to `public/uploads/`.
+> That cannot work on a serverless host: the filesystem is read-only at runtime, so the upload
+> fails outright (`ENOENT: mkdir '/var/task/public'`), and a file written after the build is never
+> served as a static asset. Keeping the bytes in Postgres makes uploads work identically in local
+> development, in a container and on a serverless platform, with no extra service or credentials.
+
+> **Sizing note.** Uploaded files count against database storage. Keep product photography web-sized
+> (roughly 1600 px on the long edge, under 400 KB). If volume grows, move this one route to object
+> storage — the URL scheme means the rest of the application does not change.
 
 ## Integration boundaries
 
