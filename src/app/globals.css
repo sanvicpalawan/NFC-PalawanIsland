@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --bg-page: #FAF9F5;
+    --bg-surface: #F3F1EB;
+    --bg-elevated: #EBE7DD;
+    --border-subtle: #E2DDD2;
+    --border-strong: #CFC7B8;
+    --text-primary: #141518;
+    --text-secondary: #525560;
+    --text-muted: #818491;
+    --accent: #B85D32;
+    --accent-hover: #A04D25;
+    --accent-subtle: #F7EEE7;
+    --accent-border: #E8D2C2;
+    --tag-bg: #EAE6DC;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --bg-page: #0C0D10;
+    --bg-surface: #14151B;
+    --bg-elevated: #1D1F27;
+    --border-subtle: #272A35;
+    --border-strong: #383D4C;
+    --text-primary: #F4F3EE;
+    --text-secondary: #A0A3AD;
+    --text-muted: #6B6E7A;
+    --accent: #D47A4D;
+    --accent-hover: #E3895D;
+    --accent-subtle: #241A14;
+    --accent-border: #4A2E1F;
+    --tag-bg: #222530;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+}
+
+/* Editorial typography and subtle grain */
+.font-serif-editorial {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.bg-pattern-subtle {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.dark .bg-pattern-subtle {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Utility to hide scrollbar while preserving touch scrolling on mobile */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Subtle NFC ripple and HUD motion animations */
+@keyframes nfc-wave {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-nfc-wave {
+  animation: nfc-wave 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.animate-float-subtle {
+  animation: float-subtle 4s ease-in-out infinite;
+}
+
+/* Flip card 3D utilities — used for Business Benefits outcomes */
+.perspective-1100 {
+  perspective: 1100px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Inner container handles the flip */
+.flip-card-inner {
+  transition: transform 680ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: rotateY(0deg);
+}
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Desktop hover flip — only when device supports hover */
+@media (hover: hover) and (pointer: fine) {
+  .group\/card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner,
+  .animate-nfc-wave,
+  .animate-float-subtle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Staggered entrance for outcome cards */
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth scroll reveal helper */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.reveal-up {
+  animation: revealUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hardware motion — gentle shine sweep */
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(220%);
+  }
+}
+.shine-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: shineSweep 4.2s ease-in-out infinite;
+  pointer-events: none;
+}

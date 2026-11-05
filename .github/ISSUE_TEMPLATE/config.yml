@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/sanvicpalawan/NFC-PalawanIsland/blob/main/SECURITY.md
+    about: Do not open a public issue for a security problem. Follow SECURITY.md instead.
+  - name: Deployment and setup help
+    url: https://github.com/sanvicpalawan/NFC-PalawanIsland/blob/main/docs/DEPLOYMENT.md
+    about: Check the deployment documentation before filing a setup question.
