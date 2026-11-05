@@ -48,18 +48,9 @@ export function Footer() {
           {/* Brand: one compact message instead of multiple stacked paragraphs. */}
           <div className="flex min-w-0 flex-col items-start lg:border-r lg:border-[var(--border-subtle)] lg:pr-10">
             <Link href="/" aria-label="NFC Palawan Island home" className="group inline-flex items-center gap-2.5">
-              <img
-                src="/brand/palawan-collective-logo-dark.png"
-                alt=""
-                aria-hidden="true"
-                className="h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:rotate-[-8deg] dark:hidden"
-              />
-              <img
-                src="/brand/palawan-collective-logo-light.png"
-                alt=""
-                aria-hidden="true"
-                className="hidden h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:rotate-[-8deg] dark:block"
-              />
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--text-primary)] text-sm font-bold text-[var(--bg-page)] transition-transform duration-300 group-hover:rotate-[-8deg]">
+                M
+              </span>
               <span className="font-serif-editorial text-[25px] font-bold leading-none tracking-tight text-[var(--text-primary)]">
                 NFC Palawan Island
               </span>

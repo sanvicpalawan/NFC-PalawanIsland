@@ -29,18 +29,9 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Brand Logo */}
           <Link href="/" className="group flex items-center gap-2.5">
-            <img
-              src="/brand/palawan-collective-logo-dark.png"
-              alt=""
-              aria-hidden="true"
-              className="w-8 h-8 shrink-0 object-contain transition-transform group-hover:scale-105 dark:hidden"
-            />
-            <img
-              src="/brand/palawan-collective-logo-light.png"
-              alt=""
-              aria-hidden="true"
-              className="hidden w-8 h-8 shrink-0 object-contain transition-transform group-hover:scale-105 dark:block"
-            />
+            <div className="w-8 h-8 rounded-lg bg-[var(--text-primary)] text-[var(--bg-page)] flex items-center justify-center font-bold tracking-tighter text-sm transition-transform group-hover:scale-105 shadow-xs">
+              M
+            </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-[var(--text-primary)] leading-none font-serif-editorial">
                 NFC Palawan Island

@@ -12,6 +12,9 @@ export default defineConfig({
   dialect: "postgresql",
   schema: "./src/db/schema.ts",
   out: "./drizzle",
+  // Only this schema belongs to this application. Without the filter, a shared
+  // Postgres instance raises a table-name conflict prompt between schemas.
+  schemaFilter: ["nfc_palawan"],
   dbCredentials: {
     url:
       process.env.DATABASE_URL ??

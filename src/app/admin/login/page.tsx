@@ -43,18 +43,9 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-[var(--bg-page)] text-[var(--text-primary)] flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center space-y-3">
         <Link href="/" className="inline-flex items-center gap-2.5">
-          <img
-            src="/brand/palawan-collective-logo-dark.png"
-            alt=""
-            aria-hidden="true"
-            className="w-9 h-9 object-contain dark:hidden"
-          />
-          <img
-            src="/brand/palawan-collective-logo-light.png"
-            alt=""
-            aria-hidden="true"
-            className="hidden w-9 h-9 object-contain dark:block"
-          />
+          <div className="w-9 h-9 rounded-xl bg-[var(--text-primary)] text-[var(--bg-page)] flex items-center justify-center font-bold text-base shadow-sm">
+            M
+          </div>
           <span className="text-2xl font-bold tracking-tight text-[var(--text-primary)] font-serif-editorial">
             NFC Palawan Island Admin
           </span>
