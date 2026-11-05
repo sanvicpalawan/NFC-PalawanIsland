@@ -38,7 +38,7 @@ export function PilotOfferSection({ settings }: { settings?: PilotSettings }) {
   const maxSpots = settings?.maxSpots || 20;
 
   const inclusions = settings?.inclusions ?? [
-    "25 custom-designed physical NFC Palawan Island smart NFC & QR tabletop discs or standups",
+    "25 custom-designed physical MerQato smart NFC & QR tabletop discs or standups",
     "Branded mobile guest portal: digital menu, instant concierge & guest requests",
     "1-Tap Google Review accelerator directly configured for your venue",
     "On-site deployment, staff training & setup in Puerto Princesa, El Nido, Coron, or San Vicente",
@@ -76,7 +76,7 @@ export function PilotOfferSection({ settings }: { settings?: PilotSettings }) {
               </h2>
 
               <p className="mt-4 max-w-[58ch] text-[14px] leading-[1.7] text-[var(--text-secondary)]">
-                Run NFC Palawan Island across your own tables, rooms, and tours before committing to anything. We deploy, train your
+                Run MerQato across your own tables, rooms, and tours before committing to anything. We deploy, train your
                 team, and review results with you at the end of the trial.
               </p>
 

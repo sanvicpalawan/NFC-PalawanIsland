@@ -129,7 +129,7 @@ export function ProductCatalog({ products }: { products: ProductItem[] }) {
             >
               <div className="w-10 h-10 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] relative overflow-hidden shrink-0 p-1">
                 <Image
-                  src={prod.imageUrl || "/images/nfc-palawan-island-product-tags.jpg"}
+                  src={prod.imageUrl || "/images/merqato-product-tags.jpg"}
                   alt={prod.name}
                   fill
                   className="object-contain p-0.5"
@@ -174,7 +174,7 @@ export function ProductCatalog({ products }: { products: ProductItem[] }) {
                   <div className="flex items-center gap-3">
                     <div className="w-13 h-13 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] overflow-hidden relative shrink-0 p-1">
                       <Image
-                        src={prod.imageUrl || "/images/nfc-palawan-island-product-tags.jpg"}
+                        src={prod.imageUrl || "/images/merqato-product-tags.jpg"}
                         alt={prod.name}
                         fill
                         className="object-contain p-0.5"
@@ -218,7 +218,7 @@ export function ProductCatalog({ products }: { products: ProductItem[] }) {
               {/* Hardware Image with object-contain so round tags and edges are 100% visible */}
               <div className="relative w-full h-full p-3 sm:p-6 transition-transform duration-700 group-hover:scale-[1.02]">
                 <Image
-                  src={active.imageUrl || "/images/nfc-palawan-island-product-tags.jpg"}
+                  src={active.imageUrl || "/images/merqato-product-tags.jpg"}
                   alt={active.name}
                   fill
                   priority

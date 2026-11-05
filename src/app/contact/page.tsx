@@ -18,7 +18,7 @@ export default function ContactPage() {
               <span>Direct Inquiries</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)] font-serif-editorial">
-              Connect with NFC Palawan Island
+              Connect with MerQato
             </h1>
             <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
               Based in Puerto Princesa, Palawan. We deploy on-site across El Nido, Coron, San Vicente, and Puerto Princesa.

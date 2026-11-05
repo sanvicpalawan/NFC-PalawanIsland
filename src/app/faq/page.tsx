@@ -7,12 +7,12 @@ export const dynamic = "force-dynamic";
 
 const faqs = [
   {
-    q: "Do guests need to download an app to use NFC Palawan Island?",
+    q: "Do guests need to download an app to use MerQato?",
     a: "No. Zero app installation is required. Every modern iPhone and Android phone automatically reads NFC tags or scans QR codes natively and renders an ultra-fast web portal in under 600 milliseconds.",
   },
   {
     q: "How does the NFC tag get power? Do we need to recharge or replace batteries?",
-    a: "NFC Palawan Island smart tags are completely passive. They contain zero batteries and never require charging. When a guest taps their smartphone, the phone's native NFC field induces power into the microchip. Our tags last for many years of daily commercial use.",
+    a: "MerQato smart tags are completely passive. They contain zero batteries and never require charging. When a guest taps their smartphone, the phone's native NFC field induces power into the microchip. Our tags last for many years of daily commercial use.",
   },
   {
     q: "Are the physical tags waterproof and resistant to Palawan's climate?",
@@ -24,15 +24,15 @@ const faqs = [
   },
   {
     q: "What is included in the ₱1,000 Hospitality Pilot Program?",
-    a: "The pilot includes 25 custom-designed physical NFC Palawan Island smart tags, full digital guest portal setup, 1-tap Google Review configuration, on-site rollout, and 90 days of hosting with zero monthly software fees. Your venue keeps all physical hardware permanently.",
+    a: "The pilot includes 25 custom-designed physical MerQato smart tags, full digital guest portal setup, 1-tap Google Review configuration, on-site rollout, and 90 days of hosting with zero monthly software fees. Your venue keeps all physical hardware permanently.",
   },
   {
-    q: "Can NFC Palawan Island integrate with our existing POS or Hotel PMS?",
-    a: "NFC Palawan Island is designed for clean API integration. During the initial pilot, orders and guest requests can be dispatched via mobile tablet dashboard, WhatsApp, or dedicated email alerts. Direct POS & PMS hooks are on our operational platform roadmap.",
+    q: "Can MerQato integrate with our existing POS or Hotel PMS?",
+    a: "MerQato is designed for clean API integration. During the initial pilot, orders and guest requests can be dispatched via mobile tablet dashboard, WhatsApp, or dedicated email alerts. Direct POS & PMS hooks are on our operational platform roadmap.",
   },
   {
-    q: "What other industries does NFC Palawan Island support?",
-    a: "Beyond hospitality and dining, NFC Palawan Island supports tour boat fleets, diving centers, off-grid solar equipment maintenance, rental motorbikes, property management villas, and artisan craft authenticity verification.",
+    q: "What other industries does MerQato support?",
+    a: "Beyond hospitality and dining, MerQato supports tour boat fleets, diving centers, off-grid solar equipment maintenance, rental motorbikes, property management villas, and artisan craft authenticity verification.",
   },
 ];
 
@@ -52,7 +52,7 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-              Everything you need to know about NFC Palawan Island NFC hardware, mobile web portals, and pilot rollout in Palawan.
+              Everything you need to know about MerQato NFC hardware, mobile web portals, and pilot rollout in Palawan.
             </p>
           </div>
 

@@ -28,8 +28,8 @@ export default function AboutPage() {
 
           <div className="relative aspect-[21/9] rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
             <Image
-              src="/images/nfc-palawan-island-hero-tap.jpg"
-              alt="NFC Palawan Island Palawan hardware on resort dining table"
+              src="/images/merqato-hero-tap.jpg"
+              alt="MerQato Palawan hardware on resort dining table"
               fill
               priority
               className="object-cover"
@@ -46,7 +46,7 @@ export default function AboutPage() {
                 Palawan is celebrated globally for pristine natural biodiversity, world-class island hospitality, and conscious eco-tourism. Yet, operating here requires resilient technology: humidity, intense saltwater exposure, and seasonal tourist influxes challenge ordinary business tools.
               </p>
               <p>
-                NFC Palawan Island was engineered by Palawan Collective to bridge tactile industrial design with ultra-fast edge cloud infrastructure. We craft hardware from sustainable Philippine hardwoods, precision anodized aluminum, and weatherproof polymers that feel premium on luxury dining tables.
+                MerQato was engineered by Palawan Collective to bridge tactile industrial design with ultra-fast edge cloud infrastructure. We craft hardware from sustainable Philippine hardwoods, precision anodized aluminum, and weatherproof polymers that feel premium on luxury dining tables.
               </p>
             </div>
 
@@ -55,10 +55,10 @@ export default function AboutPage() {
                 A Globally Competitive Philosophy
               </h2>
               <p>
-                We do not view ourselves as an ordinary QR-code generator or a digital marketing agency. NFC Palawan Island is a connected-business technology platform that turns everyday tables, doors, equipment, and products into direct conduits for human connection.
+                We do not view ourselves as an ordinary QR-code generator or a digital marketing agency. MerQato is a connected-business technology platform that turns everyday tables, doors, equipment, and products into direct conduits for human connection.
               </p>
               <p>
-                Starting from boutique resorts and beachfront dining across Puerto Princesa, El Nido, Coron, and San Vicente, NFC Palawan Island is architected to scale into marine operations, solar energy, equipment rentals, and manufacturing across the Philippines and international markets.
+                Starting from boutique resorts and beachfront dining across Puerto Princesa, El Nido, Coron, and San Vicente, MerQato is architected to scale into marine operations, solar energy, equipment rentals, and manufacturing across the Philippines and international markets.
               </p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export default function AboutPage() {
                 Meet the Palawan Team
               </h3>
               <p className="text-xs text-[var(--text-secondary)] mt-1">
-                We&apos;d love to show you physical hardware samples and live guest portals in person.
+                We'd love to show you physical hardware samples and live guest portals in person.
               </p>
             </div>
             <Link

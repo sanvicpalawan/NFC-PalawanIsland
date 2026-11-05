@@ -192,7 +192,7 @@ export function IndustrySelector({
             <div className="order-1 min-w-0 border-b border-[var(--border-subtle)] bg-[var(--bg-surface)] md:order-2 md:border-b-0 md:border-l">
               <div className="relative h-[190px] w-full overflow-hidden sm:h-[230px] md:h-full md:min-h-[360px]">
                 <Image
-                  src={current.imageUrl || "/images/nfc-palawan-island-hero-tap.jpg"}
+                  src={current.imageUrl || "/images/merqato-hero-tap.jpg"}
                   alt={`${current.name} — illustrative setting`}
                   fill
                   className="object-cover"

@@ -26,7 +26,7 @@ export default async function PilotProgramPage() {
               90-Day Hospitality Pilot Program
             </h1>
             <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-              Test NFC Palawan Island in your dining rooms, poolside cabanas, and hotel suites for 90 days with a simple ₱1,000 setup commitment and zero monthly software fees during your trial.
+              Test MerQato in your dining rooms, poolside cabanas, and hotel suites for 90 days with a simple ₱1,000 setup commitment and zero monthly software fees during your trial.
             </p>
           </div>
 

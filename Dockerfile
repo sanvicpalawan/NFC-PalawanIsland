@@ -1,4 +1,4 @@
-# Multi-stage production image for NFC Palawan Island (merqato.digital)
+# Multi-stage production Dockerfile for MerQato (merqato.digital)
 FROM node:22-alpine AS base
 WORKDIR /app
 RUN apk add --no-cache libc6-compat

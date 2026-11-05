@@ -33,7 +33,7 @@ const footerGroups = [
     title: "Company",
     links: [
       { label: "Industries", href: "/#industries" },
-      { label: "About NFC Palawan Island", href: "/about" },
+      { label: "About MerQato", href: "/about" },
       { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },
     ],
@@ -47,12 +47,12 @@ export function Footer() {
         <div className="grid gap-9 py-10 sm:gap-10 sm:py-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,2fr)] lg:gap-12 lg:py-16">
           {/* Brand: one compact message instead of multiple stacked paragraphs. */}
           <div className="flex min-w-0 flex-col items-start lg:border-r lg:border-[var(--border-subtle)] lg:pr-10">
-            <Link href="/" aria-label="NFC Palawan Island home" className="group inline-flex items-center gap-2.5">
+            <Link href="/" aria-label="MerQato home" className="group inline-flex items-center gap-2.5">
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--text-primary)] text-sm font-bold text-[var(--bg-page)] transition-transform duration-300 group-hover:rotate-[-8deg]">
                 M
               </span>
               <span className="font-serif-editorial text-[25px] font-bold leading-none tracking-tight text-[var(--text-primary)]">
-                NFC Palawan Island
+                MerQato
               </span>
             </Link>
 
@@ -106,7 +106,7 @@ export function Footer() {
 
         {/* Legal and ownership remain a short, aligned bottom bar at every size. */}
         <div className="flex flex-col gap-3 border-t border-[var(--border-subtle)] py-5 text-[11px] leading-relaxed text-[var(--text-muted)] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:py-6">
-          <p>© {new Date().getFullYear()} NFC Palawan Island · Palawan Collective</p>
+          <p>© {new Date().getFullYear()} MerQato · Palawan Collective</p>
           <nav aria-label="Legal and administration" className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy" className="transition-colors hover:text-[var(--text-primary)]">
               Privacy

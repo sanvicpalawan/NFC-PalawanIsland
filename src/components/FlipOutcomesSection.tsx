@@ -54,7 +54,7 @@ const outcomes: Outcome[] = [
     icon: Layers,
     backTitle: "How it stays consistent",
     backDescription:
-      "Edit a manual or menu once in NFC Palawan Island. Every linked tag points to the same live page — no reprinting.",
+      "Edit a manual or menu once in MerQato. Every linked tag points to the same live page — no reprinting.",
     backMeta: "One edit. Instant across all tags.",
   },
   {

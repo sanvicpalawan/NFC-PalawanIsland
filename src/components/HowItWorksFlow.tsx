@@ -11,7 +11,7 @@ const steps = [
     eyebrow: "The physical moment",
     title: "Tap or scan a smart tag.",
     description:
-      "A guest holds their phone near a NFC Palawan Island tag or scans its QR code. No app, account, or extra hardware is needed on their side.",
+      "A guest holds their phone near a MerQato tag or scans its QR code. No app, account, or extra hardware is needed on their side.",
     note: "NFC + QR fallback",
   },
   {
@@ -152,16 +152,16 @@ export function HowItWorksFlow() {
 
   return (
     <div className="overflow-hidden rounded-[24px] border border-[var(--border-subtle)] bg-[var(--bg-page)] shadow-sm sm:rounded-[28px]">
-      <div className="grid grid-cols-3 border-b border-[var(--border-subtle)]" role="tablist" aria-label="How NFC Palawan Island works">
+      <div className="grid grid-cols-3 border-b border-[var(--border-subtle)]" role="tablist" aria-label="How MerQato works">
         {steps.map((item, index) => (
           <button
             key={item.number}
             ref={(node) => { tabRefs.current[index] = node; }}
             type="button"
-            id={`nfc-palawan-island-step-${item.number}`}
+            id={`merqato-step-${item.number}`}
             role="tab"
             aria-selected={active === index}
-            aria-controls="nfc-palawan-island-step-panel"
+            aria-controls="merqato-step-panel"
             tabIndex={active === index ? 0 : -1}
             onClick={() => select(index)}
             onKeyDown={(event) => {
@@ -193,9 +193,9 @@ export function HowItWorksFlow() {
       </div>
 
       <motion.div
-        id="nfc-palawan-island-step-panel"
+        id="merqato-step-panel"
         role="tabpanel"
-        aria-labelledby={`nfc-palawan-island-step-${step.number}`}
+        aria-labelledby={`merqato-step-${step.number}`}
         className="grid touch-pan-y gap-5 p-5 sm:gap-7 sm:p-7 md:grid-cols-[1fr_0.9fr] md:items-center md:p-8"
         drag={reduceMotion ? false : "x"}
         dragConstraints={{ left: 0, right: 0 }}

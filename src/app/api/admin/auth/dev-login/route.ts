@@ -18,7 +18,7 @@ export async function GET() {
 
   let user = {
     id: 0,
-    email: "dev@localhost",
+    email: "dev@merqato.local",
     name: "Development Session",
     role: "owner" as const,
   };

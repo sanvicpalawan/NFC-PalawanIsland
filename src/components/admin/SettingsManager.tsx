@@ -22,7 +22,7 @@ export function SettingsManager() {
   });
 
   const [brand, setBrand] = useState({
-    siteName: "NFC Palawan Island",
+    siteName: "MerQato",
     headline: "Make Every Tap Count.",
     subheadline: "Turn everyday objects into powerful business tools.",
     contactEmail: "hello@merqato.digital",
@@ -57,7 +57,7 @@ export function SettingsManager() {
       if (data.settings?.brand) {
         const b = data.settings.brand;
         setBrand({
-          siteName: b.siteName || "NFC Palawan Island",
+          siteName: b.siteName || "MerQato",
           headline: b.headline || "Make Every Tap Count.",
           subheadline: b.subheadline || "Turn everyday objects into powerful business tools.",
           contactEmail: b.contactEmail || "hello@merqato.digital",

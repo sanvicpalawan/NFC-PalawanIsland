@@ -52,7 +52,7 @@ export default async function InsightArticlePage({
 
           <div className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
             <Image
-              src={article.coverImage || "/images/nfc-palawan-island-hero-tap.jpg"}
+              src={article.coverImage || "/images/merqato-hero-tap.jpg"}
               alt={article.title}
               fill
               priority

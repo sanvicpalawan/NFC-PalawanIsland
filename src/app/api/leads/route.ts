@@ -71,7 +71,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Thank you for reaching out to NFC Palawan Island. Our Palawan team will connect with you within 24 business hours.",
+      message: "Thank you for reaching out to MerQato. Our Palawan team will connect with you within 24 business hours.",
       leadId: newLead[0]?.id,
     });
   } catch (error) {

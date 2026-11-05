@@ -45,7 +45,7 @@ export function ProductsManager() {
     category: "stickers",
     tagline: "",
     description: "",
-    imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
+    imageUrl: "/images/merqato-product-tags.jpg",
     galleryUrls: [] as string[],
     dimensions: "30mm Ø",
     materials: "Matte PET with 3M 300LSE adhesive",
@@ -90,7 +90,7 @@ export function ProductsManager() {
       category: "stickers",
       tagline: "",
       description: "",
-      imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
+      imageUrl: "/images/merqato-product-tags.jpg",
       galleryUrls: [],
       dimensions: "30mm Ø",
       materials: "Matte PET with 3M 300LSE adhesive",
@@ -120,7 +120,7 @@ export function ProductsManager() {
       category: prod.category,
       tagline: prod.tagline || "",
       description: prod.description,
-      imageUrl: prod.imageUrl || "/images/nfc-palawan-island-product-tags.jpg",
+      imageUrl: prod.imageUrl || "/images/merqato-product-tags.jpg",
       galleryUrls: Array.isArray(g) ? g : [],
       dimensions: prod.dimensions || "30mm Ø",
       materials: prod.materials || "Solid Teak / PET",
@@ -451,7 +451,7 @@ export function ProductsManager() {
               <div key={prod.id} className="p-3 sm:p-4 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-3 min-w-0">
                   <div className="w-11 h-11 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-subtle)] overflow-hidden relative shrink-0">
-                    <Image src={(prod as any).imageUrl || "/images/nfc-palawan-island-product-tags.jpg"} alt={prod.name} fill className="object-cover" sizes="44px" unoptimized />
+                    <Image src={(prod as any).imageUrl || "/images/merqato-product-tags.jpg"} alt={prod.name} fill className="object-cover" sizes="44px" unoptimized />
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">

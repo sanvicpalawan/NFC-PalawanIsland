@@ -40,7 +40,7 @@ export function InteractivePhoneDemo() {
         </h3>
 
         <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-          No app downloads. No camera hunting in dim lighting. When a guest taps or scans a NFC Palawan Island smart disc, an ultra-fast web portal renders in under 600 milliseconds.
+          No app downloads. No camera hunting in dim lighting. When a guest taps or scans a MerQato smart disc, an ultra-fast web portal renders in under 600 milliseconds.
         </p>
 
         {/* Interactive Selector Buttons */}
@@ -132,7 +132,7 @@ export function InteractivePhoneDemo() {
             </div>
             <div>
               <p className="text-xs font-semibold text-[var(--text-primary)]">
-                Physical NFC Palawan Island Smart Standup
+                Physical MerQato Smart Standup
               </p>
               <p className="text-[11px] text-[var(--text-muted)]">
                 Solid Palawan Teak &middot; Embedded NXP NTAG215 chip
@@ -254,7 +254,7 @@ export function InteractivePhoneDemo() {
               {activeTab === "menu" && (
                 <>
                   <div className="flex items-center justify-between pb-1">
-                    <span className="text-[11px] font-bold text-[var(--text-primary)]">Chef&apos;s Island Catch of the Day</span>
+                    <span className="text-[11px] font-bold text-[var(--text-primary)]">Chef's Island Catch of the Day</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">
                       Fresh Today
                     </span>
@@ -366,7 +366,7 @@ export function InteractivePhoneDemo() {
                       ))}
                     </div>
                     <p className="text-[10px] leading-relaxed text-[var(--text-muted)]">
-                      Ratings you post are yours. NFC Palawan Island never edits or filters reviews.
+                      Ratings you post are yours. MerQato never edits or filters reviews.
                     </p>
                   </div>
                 </>
@@ -431,7 +431,7 @@ export function InteractivePhoneDemo() {
 
             {/* Bottom status bar */}
             <div className="px-4 py-2 bg-[var(--bg-surface)] border-t border-[var(--border-subtle)] flex items-center justify-between text-[10px] text-[var(--text-muted)] font-mono">
-              <span>Powered by NFC Palawan Island</span>
+              <span>Powered by MerQato</span>
               <span>Encrypted NFC SSL</span>
             </div>
           </div>

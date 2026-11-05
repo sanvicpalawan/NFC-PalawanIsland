@@ -57,7 +57,7 @@ export default function AdminLoginPage() {
             M
           </div>
           <span className="text-2xl font-bold tracking-tight text-[var(--text-primary)] font-serif-editorial">
-            NFC Palawan Island Admin
+            MerQato Admin
           </span>
         </Link>
         <p className="text-xs text-[var(--text-muted)] font-mono">

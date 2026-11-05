@@ -57,10 +57,10 @@ export default async function AdminPlatformRoadmapPage() {
           <span>Operational Architecture Specifications</span>
         </div>
         <h1 className="text-2xl font-bold tracking-tight text-[var(--text-primary)] font-serif-editorial">
-          Future NFC Palawan Island Platform Integration Points
+          Future MerQato Platform Integration Points
         </h1>
         <p className="text-xs text-[var(--text-muted)] max-w-2xl">
-          Clean integration boundary separating the marketing CMS from the future NFC Palawan Island QR/NFC operational redirect platform. Per engineering principles, mock analytics are avoided until live hardware telemetry is connected.
+          Clean integration boundary separating the marketing CMS from the future MerQato QR/NFC operational redirect platform. Per engineering principles, mock analytics are avoided until live hardware telemetry is connected.
         </p>
       </div>
 

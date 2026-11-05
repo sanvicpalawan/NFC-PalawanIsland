@@ -67,7 +67,7 @@ export async function GET(req: Request) {
       return new NextResponse(csvString, {
         headers: {
           "Content-Type": "text/csv; charset=utf-8",
-          "Content-Disposition": `attachment; filename="nfc-palawan-island-leads-${new Date().toISOString().slice(0, 10)}.csv"`,
+          "Content-Disposition": `attachment; filename="merqato-leads-${new Date().toISOString().slice(0, 10)}.csv"`,
         },
       });
     }

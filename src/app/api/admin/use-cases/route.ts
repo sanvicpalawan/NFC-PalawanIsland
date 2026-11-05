@@ -49,7 +49,7 @@ export async function POST(req: Request) {
         subtitle: subtitle || null,
         description: String(description).trim(),
         icon: icon || "Zap",
-        imageUrl: imageUrl || "/images/nfc-palawan-island-hospitality-portal.jpg",
+        imageUrl: imageUrl || "/images/merqato-hospitality-portal.jpg",
         industrySlugs: Array.isArray(industrySlugs) ? industrySlugs : ["hospitality"],
         features: Array.isArray(features) ? features : [],
         benefits: Array.isArray(benefits) ? benefits : [],

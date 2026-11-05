@@ -202,7 +202,7 @@ export function LeadInquiryForm() {
         type: "success",
         message:
           data.message ||
-          "Thank you for contacting NFC Palawan Island. Our Palawan team will reach out within 24 business hours.",
+          "Thank you for contacting MerQato. Our Palawan team will reach out within 24 business hours.",
       });
       setFormData({
         businessName: "",
@@ -678,7 +678,7 @@ export function LeadInquiryForm() {
               className="mt-0.5 rounded border-[var(--border-strong)] text-[var(--accent)] focus:ring-[var(--accent)]"
             />
             <span>
-              I consent to NFC Palawan Island / Palawan Collective contacting me regarding this inquiry. Your details remain confidential and are never shared.
+              I consent to MerQato / Palawan Collective contacting me regarding this inquiry. Your details remain confidential and are never shared.
             </span>
           </label>
 

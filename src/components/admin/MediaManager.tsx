@@ -154,7 +154,7 @@ export function MediaManager() {
                   value={formData.fileName}
                   onChange={(e) => setFormData({ ...formData, fileName: e.target.value })}
                   className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]"
-                  placeholder="e.g. nfc-palawan-island-teak-macro.jpg"
+                  placeholder="e.g. merqato-teak-macro.jpg"
                 />
               </div>
 
@@ -181,7 +181,7 @@ export function MediaManager() {
                 value={formData.url}
                 onChange={(e) => setFormData({ ...formData, url: e.target.value })}
                 className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]"
-                placeholder="e.g. /images/nfc-palawan-island-hero-tap.jpg or external HTTPS URL"
+                placeholder="e.g. /images/merqato-hero-tap.jpg or external HTTPS URL"
               />
             </div>
 
@@ -231,10 +231,10 @@ export function MediaManager() {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
               {[
-                { name: "Hero Tap Photo", url: "/images/nfc-palawan-island-hero-tap.jpg" },
-                { name: "Product Tags Studio", url: "/images/nfc-palawan-island-product-tags.jpg" },
-                { name: "Teak Standup Macro", url: "/images/nfc-palawan-island-standup-teak.jpg" },
-                { name: "NFC Stickers Macro", url: "/images/nfc-palawan-island-nfc-stickers-macro.jpg" },
+                { name: "Hero Tap Photo", url: "/images/merqato-hero-tap.jpg" },
+                { name: "Product Tags Studio", url: "/images/merqato-product-tags.jpg" },
+                { name: "Teak Standup Macro", url: "/images/merqato-standup-teak.jpg" },
+                { name: "NFC Stickers Macro", url: "/images/merqato-nfc-stickers-macro.jpg" },
               ].map((item, idx) => (
                 <div key={idx} className="p-3 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2">
                   <div className="relative aspect-video rounded-xl overflow-hidden bg-neutral-900">

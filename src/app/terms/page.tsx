@@ -14,14 +14,14 @@ export default function TermsOfServicePage() {
             Terms of Service
           </h1>
           <p className="text-xs text-[var(--text-muted)] font-mono">
-            Effective Date: January 2026 &middot; NFC Palawan Island (Palawan Collective)
+            Effective Date: January 2026 &middot; MerQato Digital (Palawan Collective)
           </p>
 
           <div className="space-y-6 text-sm text-[var(--text-secondary)] leading-relaxed">
             <section className="space-y-2">
               <h2 className="text-lg font-bold text-[var(--text-primary)]">1. Commercial Agreement</h2>
               <p>
-                By requesting a pilot deployment, purchasing physical smart hardware, or accessing the administration system of NFC Palawan Island, you agree to these commercial terms established by Palawan Collective.
+                By requesting a pilot deployment, purchasing physical smart hardware, or accessing the administration system of MerQato, you agree to these commercial terms established by Palawan Collective.
               </p>
             </section>
 
@@ -35,7 +35,7 @@ export default function TermsOfServicePage() {
             <section className="space-y-2">
               <h2 className="text-lg font-bold text-[var(--text-primary)]">3. Intellectual Property</h2>
               <p>
-                NFC Palawan Island and Palawan Collective retain all intellectual property rights associated with the connected business software, edge redirection technology, and industrial designs. Clients retain full ownership of their venue trademarks, logos, menu photography, and operational content.
+                MerQato and Palawan Collective retain all intellectual property rights associated with the connected business software, edge redirection technology, and industrial designs. Clients retain full ownership of their venue trademarks, logos, menu photography, and operational content.
               </p>
             </section>
           </div>

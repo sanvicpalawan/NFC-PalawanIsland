@@ -49,7 +49,7 @@ export default async function SolutionsPage() {
               Connected Solutions
             </h1>
             <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
-              Every NFC Palawan Island solution is engineered to eliminate friction between your guests or staff and the physical assets they interact with daily.
+              Every MerQato solution is engineered to eliminate friction between your guests or staff and the physical assets they interact with daily.
             </p>
           </div>
 

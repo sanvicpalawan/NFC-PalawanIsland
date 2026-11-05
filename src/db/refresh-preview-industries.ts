@@ -21,15 +21,15 @@ const oldDescriptions: Record<string, string> = {
   "property-and-facilities":
     "Transform rental properties and commercial real estate with smart tags on air conditioning controls, Wi-Fi routers, breaker panels, and entryways for guest manuals and technician logs.",
   "solar-and-energy":
-    "Off-grid and grid-tied solar installations in remote island locations require verifiable field tracking. NFC Palawan Island rugged asset tags link inverters, batteries, and solar arrays to commissioning certificates and repair history.",
+    "Off-grid and grid-tied solar installations in remote island locations require verifiable field tracking. MerQato rugged asset tags link inverters, batteries, and solar arrays to commissioning certificates and repair history.",
   "equipment-rentals":
     "Mount durable NFC tags on rental motorbikes, ATVs, scuba gear, and construction generators. Customers tap for return times, operating instructions, and emergency roadside assistance.",
   "manufacturing-and-product-identity":
-    "High-value local craft, organic agriculture, pearls, and exported goods carry NFC Palawan Island cryptographic NFC seals verifying origin, certification, and artisan story.",
+    "High-value local craft, organic agriculture, pearls, and exported goods carry MerQato cryptographic NFC seals verifying origin, certification, and artisan story.",
   "logistics-and-supply-chains":
     "Track inter-island shipping containers, cold-chain seafood boxes, and high-value cargo with durable scanned checkpoints that work reliably even with intermittent connectivity.",
   "events-and-experiences":
-    "Festivals, corporate summits, and private island retreats use NFC Palawan Island silicone wristbands and laminate NFC passes for frictionless entry, schedule updates, and digital business card exchange.",
+    "Festivals, corporate summits, and private island retreats use MerQato silicone wristbands and laminate NFC passes for frictionless entry, schedule updates, and digital business card exchange.",
 };
 
 async function main() {

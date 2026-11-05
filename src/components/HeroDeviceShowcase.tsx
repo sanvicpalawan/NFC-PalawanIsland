@@ -211,8 +211,8 @@ export function HeroDeviceShowcase() {
       {/* Photograph */}
       <div className="relative overflow-hidden rounded-[26px] border border-[var(--border-subtle)] bg-[var(--bg-elevated)] shadow-[0_36px_80px_-48px_rgba(20,21,24,0.45)] sm:rounded-[32px]">
         <Image
-          src="/images/nfc-palawan-island-hero-tap.jpg"
-          alt="A guest's phone resting above a NFC Palawan Island smart tag on a resort table"
+          src="/images/merqato-hero-tap.jpg"
+          alt="A guest's phone resting above a MerQato smart tag on a resort table"
           width={1280}
           height={1536}
           priority

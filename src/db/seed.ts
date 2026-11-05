@@ -22,7 +22,7 @@ export async function seedDatabase() {
       return;
     }
 
-    console.log("Seeding NFC Palawan Island database...");
+    console.log("Seeding MerQato database...");
 
     const passwordHash = await bcrypt.hash("Merqato2026!Admin", 10);
     const editorHash = await bcrypt.hash("Merqato2026!Editor", 10);
@@ -50,13 +50,13 @@ export async function seedDatabase() {
       {
         key: "brand",
         value: {
-          siteName: "NFC Palawan Island",
+          siteName: "MerQato",
           domain: "merqato.digital",
           creator: "Palawan Collective",
           headline: "Make Every Tap Count.",
           subheadline: "Turn everyday objects into powerful business tools.",
           description:
-            "NFC Palawan Island connects physical places, products, and equipment to useful digital experiences through QR codes, NFC technology, and connected business software.",
+            "MerQato connects physical places, products, and equipment to useful digital experiences through QR codes, NFC technology, and connected business software.",
           contactEmail: "hello@merqato.digital",
           contactPhone: "+63 (048) 433-2890",
           address: "Palawan Collective Technology Hub, Rizal Avenue, Puerto Princesa, Palawan 5300, Philippines",
@@ -77,7 +77,7 @@ export async function seedDatabase() {
           setupCommitmentPhp: 1000,
           regularValuePhp: 12500,
           inclusions: [
-            "25 custom-designed physical NFC Palawan Island smart NFC & QR tabletop discs or standups",
+            "25 custom-designed physical MerQato smart NFC & QR tabletop discs or standups",
             "Branded mobile guest portal: digital menu, instant concierge & guest requests",
             "1-Tap Google Review accelerator directly configured for your venue",
             "On-site deployment, staff training & setup in Puerto Princesa, El Nido, Coron, or San Vicente",
@@ -111,9 +111,9 @@ export async function seedDatabase() {
       {
         key: "seo_defaults",
         value: {
-          metaTitle: "NFC Palawan Island | Connected Business Experiences — NFC & QR Solutions",
+          metaTitle: "MerQato | Connected Business Experiences — NFC & QR Solutions",
           metaDescription:
-            "Make Every Tap Count. NFC Palawan Island connects physical places, products, and equipment to useful digital experiences with smart NFC tags and connected hospitality software in Palawan, Philippines.",
+            "Make Every Tap Count. MerQato connects physical places, products, and equipment to useful digital experiences with smart NFC tags and connected hospitality software in Palawan, Philippines.",
           ogImage: "/images/merqato-hero-tap.jpg",
           canonicalBase: "https://merqato.digital",
           robotsIndexing: true,
@@ -175,7 +175,7 @@ export async function seedDatabase() {
         title: "Google Review Collection",
         subtitle: "Capture positive feedback at the exact moment of guest satisfaction",
         description:
-          "Tapping the NFC Palawan Island standup launches an optimized 1-tap review prompt directly into Google Maps on the guest's phone, bypassing confusing searches and login barriers.",
+          "Tapping the MerQato standup launches an optimized 1-tap review prompt directly into Google Maps on the guest's phone, bypassing confusing searches and login barriers.",
         icon: "Star",
         imageUrl: "/images/merqato-hero-tap.jpg",
         industrySlugs: ["hospitality", "restaurants-and-cafes", "tourism-and-marine"],
@@ -462,7 +462,7 @@ export async function seedDatabase() {
       },
       {
         slug: "tabletop-standups",
-        name: "NFC Palawan Island Tabletop Smart Standups",
+        name: "MerQato Tabletop Smart Standups",
         category: "tabletop",
         tagline: "Architectural solid wood and brushed aluminum table discs & tents",
         description:
@@ -491,7 +491,7 @@ export async function seedDatabase() {
       },
       {
         slug: "nfc-cards",
-        name: "NFC Palawan Island Premium NFC Smart Cards",
+        name: "MerQato Premium NFC Smart Cards",
         category: "cards",
         tagline: "Ultra-sleek hotel room keycards and digital business credentials",
         description:
@@ -519,7 +519,7 @@ export async function seedDatabase() {
       },
       {
         slug: "nfc-wristbands",
-        name: "NFC Palawan Island Marine & Event NFC Wristbands",
+        name: "MerQato Marine & Event NFC Wristbands",
         category: "wristbands",
         tagline: "Waterproof silicone and woven fabric wristbands for guests and crew",
         description:
@@ -547,7 +547,7 @@ export async function seedDatabase() {
       },
       {
         slug: "secure-nfc-tags",
-        name: "NFC Palawan Island Secure Cryptographic NFC Tags",
+        name: "MerQato Secure Cryptographic NFC Tags",
         category: "secure_tags",
         tagline: "Anti-counterfeiting and dynamic authentication with NXP NTAG 424 DNA",
         description:
@@ -608,20 +608,20 @@ export async function seedDatabase() {
       {
         slug: "home",
         title: "Home",
-        metaTitle: "NFC Palawan Island | Make Every Tap Count — Connected Business Experiences",
+        metaTitle: "MerQato | Make Every Tap Count — Connected Business Experiences",
         metaDescription:
-          "Turn everyday objects into powerful business tools. NFC Palawan Island connects physical places, products, and equipment to useful digital experiences via NFC & QR.",
+          "Turn everyday objects into powerful business tools. MerQato connects physical places, products, and equipment to useful digital experiences via NFC & QR.",
         heroHeadline: "Make Every Tap Count.",
         heroSubheadline: "Turn everyday objects into powerful business tools.",
         heroDescription:
-          "NFC Palawan Island connects physical places, products, and equipment to useful digital experiences through QR codes, NFC technology, and connected business software.",
+          "MerQato connects physical places, products, and equipment to useful digital experiences through QR codes, NFC technology, and connected business software.",
         status: "published",
         sectionsContent: {
           pilotHeadline: "Join the Palawan Connected Hospitality Pilot",
           pilotPricePhp: 1000,
           pilotDurationDays: 90,
           howItWorksSteps: [
-            { step: "01", title: "Tap or scan a smart tag", description: "No app downloads, no friction. A simple tap of a guest's smartphone on an elegant NFC Palawan Island wooden or acrylic tabletop tag." },
+            { step: "01", title: "Tap or scan a smart tag", description: "No app downloads, no friction. A simple tap of a guest's smartphone on an elegant MerQato wooden or acrylic tabletop tag." },
             { step: "02", title: "Open the connected digital experience", description: "In under 600 milliseconds, an intuitive mobile-web portal opens with your venue's branded identity, live menus, and concierge tools." },
             { step: "03", title: "Book, order, interact, or complete a task", description: "The guest orders food, requests towels, writes a 5-star Google review, or books an island tour seamlessly." },
           ],
@@ -629,14 +629,14 @@ export async function seedDatabase() {
       },
       {
         slug: "about",
-        title: "About NFC Palawan Island",
-        metaTitle: "About NFC Palawan Island | Palawan Collective",
+        title: "About MerQato",
+        metaTitle: "About MerQato | Palawan Collective",
         metaDescription:
-          "Born in Palawan, Philippines, NFC Palawan Island designs connected physical-to-digital tools for hospitality and enterprise operations.",
+          "Born in Palawan, Philippines, MerQato designs connected physical-to-digital tools for hospitality and enterprise operations.",
         heroHeadline: "Connecting the Physical World to Useful Digital Action",
         heroSubheadline: "Developed by Palawan Collective",
         heroDescription:
-          "We believe physical spaces should communicate effortlessly. NFC Palawan Island bridges tactile industrial design with lightning-fast cloud software, starting from the world-class islands of Palawan.",
+          "We believe physical spaces should communicate effortlessly. MerQato bridges tactile industrial design with lightning-fast cloud software, starting from the world-class islands of Palawan.",
         status: "published",
         sectionsContent: {
           mission: "To eliminate friction between people and the physical environments they navigate every day.",
@@ -646,22 +646,22 @@ export async function seedDatabase() {
       {
         slug: "pilot-program",
         title: "Hospitality Pilot Program",
-        metaTitle: "90-Day Hospitality Pilot Program | NFC Palawan Island Palawan",
+        metaTitle: "90-Day Hospitality Pilot Program | MerQato Palawan",
         metaDescription:
-          "Experience NFC Palawan Island with our 90-day trial for ₱1,000 setup commitment. Limited to 20 hospitality venues across Palawan.",
+          "Experience MerQato with our 90-day trial for ₱1,000 setup commitment. Limited to 20 hospitality venues across Palawan.",
         heroHeadline: "Experience Connected Hospitality for 90 Days.",
         heroSubheadline: "₱1,000 Setup Commitment. Zero Recurring Fees During Trial.",
         heroDescription:
-          "Test NFC Palawan Island in your dining rooms, poolside cabanas, and hotel suites. Measure guest satisfaction, Google Review growth, and order velocity with zero ongoing risk.",
+          "Test MerQato in your dining rooms, poolside cabanas, and hotel suites. Measure guest satisfaction, Google Review growth, and order velocity with zero ongoing risk.",
         status: "published",
         sectionsContent: {},
       },
       {
         slug: "how-it-works",
         title: "How It Works",
-        metaTitle: "How It Works | NFC Palawan Island NFC & QR Architecture",
+        metaTitle: "How It Works | MerQato NFC & QR Architecture",
         metaDescription:
-          "Understand the three-step physical-to-digital flow powering NFC Palawan Island's connected business experiences.",
+          "Understand the three-step physical-to-digital flow powering MerQato's connected business experiences.",
         heroHeadline: "Frictionless Architecture. Instant Interaction.",
         heroSubheadline: "From physical touch to cloud action in under one second.",
         heroDescription:
@@ -699,7 +699,7 @@ Beyond aesthetics, tap completion rates in field tests conducted in El Nido and 
 
 Every phone call interrupts front-desk staff who are in the middle of welcoming checking-in guests.
 
-By deploying NFC Palawan Island connected smart tags across guest suites, pool decks, and dining verandas, venues centralize 80% of routine inquiries into an ultra-fast digital portal. Guests tap to order, request amenities, or view island tide schedules. Staff receive structured notifications on their mobile tablets, eliminating misheard requests and unnecessary foot travel across sprawling resort grounds.`,
+By deploying MerQato connected smart tags across guest suites, pool decks, and dining verandas, venues centralize 80% of routine inquiries into an ultra-fast digital portal. Guests tap to order, request amenities, or view island tide schedules. Staff receive structured notifications on their mobile tablets, eliminating misheard requests and unnecessary foot travel across sprawling resort grounds.`,
         author: "Hospitality Strategy Group",
         readTime: "5 min read",
         coverImage: "/images/merqato-hospitality-portal.jpg",
@@ -710,10 +710,10 @@ By deploying NFC Palawan Island connected smart tags across guest suites, pool d
         title: "Rugged Asset Tagging in Tropical Marine Environments",
         category: "Industrial Hardware",
         summary:
-          "Saltwater spray, equatorial humidity, and tropical heat degrade standard labels within weeks. Here is how NFC Palawan Island engineers resilient hardware for island operations.",
+          "Saltwater spray, equatorial humidity, and tropical heat degrade standard labels within weeks. Here is how MerQato engineers resilient hardware for island operations.",
         content: `Operating marine tour fleets, solar microgrids, and rental recreational equipment in Palawan poses extreme environmental tests. High ambient humidity, constant airborne sea salt, intense ultraviolet radiation, and heavy seasonal rainfall destroy standard paper or consumer-grade plastic stickers within 30 to 60 days.
 
-NFC Palawan Island specialized industrial tags utilize ultrasonic-sealed ABS casings, ferrite anti-metal isolation layers, and high-tenacity 3M VHB bonding to withstand years of harsh island exposure.
+MerQato specialized industrial tags utilize ultrasonic-sealed ABS casings, ferrite anti-metal isolation layers, and high-tenacity 3M VHB bonding to withstand years of harsh island exposure.
 
 Field testing on commercial dive catamarans in Coron verified zero signal degradation or adhesive peeling after 12 months of daily saltwater spray and engine vibrations.`,
         author: "Materials & Industrial Design Lab",
@@ -773,7 +773,7 @@ Field testing on commercial dive catamarans in Coron verified zero signal degrad
       },
     ]);
 
-    console.log("NFC Palawan Island database seeded successfully!");
+    console.log("MerQato database seeded successfully!");
   } catch (error) {
     console.error("Error seeding database:", error);
   }

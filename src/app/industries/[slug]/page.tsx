@@ -90,7 +90,7 @@ export default async function IndustryDetailPage({
 
             <div className="lg:col-span-5 relative aspect-[16/11] rounded-3xl overflow-hidden border border-[var(--border-subtle)] bg-[var(--bg-surface)]">
               <Image
-                src={industry.imageUrl || "/images/nfc-palawan-island-hero-tap.jpg"}
+                src={industry.imageUrl || "/images/merqato-hero-tap.jpg"}
                 alt={industry.name}
                 fill
                 priority

@@ -34,7 +34,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-[var(--text-primary)] leading-none font-serif-editorial">
-                NFC Palawan Island
+                MerQato
               </span>
               <span className="text-[10px] tracking-wider uppercase text-[var(--text-muted)] mt-0.5">
                 Palawan Collective
@@ -154,7 +154,7 @@ export function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="py-2 text-[var(--text-primary)] hover:text-[var(--accent)]"
               >
-                About NFC Palawan Island
+                About MerQato
               </Link>
               <Link
                 href="/insights"

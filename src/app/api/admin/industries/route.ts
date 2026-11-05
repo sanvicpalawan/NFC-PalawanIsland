@@ -49,7 +49,7 @@ export async function POST(req: Request) {
         tagline: tagline || null,
         description: String(description).trim(),
         icon: icon || "Layers",
-        imageUrl: imageUrl || "/images/nfc-palawan-island-hero-tap.jpg",
+        imageUrl: imageUrl || "/images/merqato-hero-tap.jpg",
         isPrimary: Boolean(isPrimary),
         sortOrder: 10,
         status: status || "published",

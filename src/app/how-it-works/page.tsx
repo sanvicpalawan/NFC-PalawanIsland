@@ -20,7 +20,7 @@ export default function HowItWorksPage() {
               <span>Architecture & Flow</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--text-primary)] font-serif-editorial">
-              How NFC Palawan Island Works
+              How MerQato Works
             </h1>
             <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
               From a physical tap to a useful digital experience. Follow the three steps, then try the interactive guest demo.
@@ -36,7 +36,7 @@ export default function HowItWorksPage() {
 
           <div className="text-center space-y-4 max-w-xl mx-auto">
             <h3 className="text-2xl font-bold font-serif-editorial">
-              Ready to experience NFC Palawan Island at your venue?
+              Ready to experience MerQato at your venue?
             </h3>
             <p className="text-xs text-[var(--text-secondary)]">
               Join our 90-day Palawan hospitality connected experience pilot.

@@ -70,7 +70,7 @@ export default async function HomePage() {
                 </p>
 
                 <p className="text-xs sm:text-base text-[var(--text-muted)] max-w-xl leading-relaxed" style={{ animation: "revealUp 0.8s 0.2s both" }}>
-                  NFC Palawan Island connects physical places, products, and equipment to useful digital experiences through QR codes, NFC technology, and connected business software.
+                  MerQato connects physical places, products, and equipment to useful digital experiences through QR codes, NFC technology, and connected business software.
                 </p>
 
                 {/* CTAs with mobile full-width touch targets */}
@@ -127,7 +127,7 @@ export default async function HomePage() {
                 Three Simple Steps
               </div>
               <h2 className="font-serif-editorial text-3xl font-bold tracking-tight text-[var(--text-primary)] sm:text-4xl">
-                How NFC Palawan Island Works
+                How MerQato Works
               </h2>
               <p className="text-base text-[var(--text-secondary)]">
                 One tap, the right experience, and a useful next step. Explore the flow below.

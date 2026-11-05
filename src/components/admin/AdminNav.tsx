@@ -79,7 +79,7 @@ export function AdminNav({
             M
           </div>
           <span className="font-bold text-base font-serif-editorial">
-            NFC Palawan Island Admin
+            MerQato Admin
           </span>
         </Link>
 
@@ -110,7 +110,7 @@ export function AdminNav({
               </div>
               <div>
                 <span className="font-bold text-base font-serif-editorial text-[var(--text-primary)] block leading-none">
-                  NFC Palawan Island
+                  MerQato
                 </span>
                 <span className="text-[10px] font-mono text-[var(--text-muted)] tracking-wider">
                   Admin CMS

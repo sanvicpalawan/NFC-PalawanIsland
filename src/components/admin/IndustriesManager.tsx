@@ -30,7 +30,7 @@ export function IndustriesManager() {
     tagline: "",
     description: "",
     icon: "Layers",
-    imageUrl: "/images/nfc-palawan-island-hero-tap.jpg",
+    imageUrl: "/images/merqato-hero-tap.jpg",
     isPrimary: false,
     status: "published",
     benefitsText: "",
@@ -64,7 +64,7 @@ export function IndustriesManager() {
       tagline: "",
       description: "",
       icon: "Layers",
-      imageUrl: "/images/nfc-palawan-island-hero-tap.jpg",
+      imageUrl: "/images/merqato-hero-tap.jpg",
       isPrimary: false,
       status: "published",
       benefitsText: "Faster operational turnaround\nDirect mobile access\nZero paper waste",
@@ -81,7 +81,7 @@ export function IndustriesManager() {
       tagline: ind.tagline || "",
       description: ind.description,
       icon: ind.icon || "Layers",
-      imageUrl: ind.imageUrl || "/images/nfc-palawan-island-hero-tap.jpg",
+      imageUrl: ind.imageUrl || "/images/merqato-hero-tap.jpg",
       isPrimary: Boolean(ind.isPrimary),
       status: ind.status,
       benefitsText: benefits.join("\n"),
@@ -261,7 +261,7 @@ export function IndustriesManager() {
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)] resize-none"
-                placeholder="Explain how NFC Palawan Island connects physical equipment, facilities, or venues in this sector..."
+                placeholder="Explain how MerQato connects physical equipment, facilities, or venues in this sector..."
               />
             </div>
 
