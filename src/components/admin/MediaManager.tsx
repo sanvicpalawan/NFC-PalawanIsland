@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Plus, Trash2, Copy, Check, Image as ImageIcon, Loader2, X } from "lucide-react";
+import { ImageUploadField } from "./ImageUploadField";
 
 interface MediaItem {
   id: number;
@@ -58,15 +59,22 @@ export function MediaManager() {
     setSaving(true);
     setMessage(null);
 
+    // Name is optional: fall back to the last URL segment so an upload that
+    // already produced a URL is never blocked by a missing label.
+    const fileName =
+      formData.fileName.trim() ||
+      formData.url.split("/").filter(Boolean).pop() ||
+      "media-asset";
+
     try {
       const res = await fetch("/api/admin/media", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, fileName }),
       });
 
       if (!res.ok) throw new Error("Failed to register media item");
-      setMessage({ type: "success", text: `Added ${formData.fileName} to media library.` });
+      setMessage({ type: "success", text: `Added ${fileName} to media library.` });
       setIsAdding(false);
       setFormData({ fileName: "", url: "", altText: "", category: "product" });
       await fetchMedia();
@@ -147,14 +155,13 @@ export function MediaManager() {
           <form onSubmit={handleAddMedia} className="space-y-4 text-xs">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-semibold mb-1">Asset File Name *</label>
+                <label className="block font-semibold mb-1">Asset Name</label>
                 <input
                   type="text"
-                  required
                   value={formData.fileName}
                   onChange={(e) => setFormData({ ...formData, fileName: e.target.value })}
                   className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]"
-                  placeholder="e.g. merqato-teak-macro.jpg"
+                  placeholder="Optional — e.g. teak-table-macro.jpg"
                 />
               </div>
 
@@ -173,17 +180,13 @@ export function MediaManager() {
               </div>
             </div>
 
-            <div>
-              <label className="block font-semibold mb-1">Accessible URL Path *</label>
-              <input
-                type="text"
-                required
-                value={formData.url}
-                onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                className="w-full px-3 py-2 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)]"
-                placeholder="e.g. /images/merqato-hero-tap.jpg or external HTTPS URL"
-              />
-            </div>
+            <ImageUploadField
+              label="Asset image"
+              value={formData.url}
+              onChange={(url) => setFormData({ ...formData, url })}
+              hint="Upload an image from your device, or paste an existing URL. Uploads are stored automatically and are also added to this library."
+              placeholder="e.g. /images/hero.jpg or an external HTTPS URL"
+            />
 
             <div>
               <label className="block font-semibold mb-1">Accessibility Alt Text</label>
@@ -225,26 +228,25 @@ export function MediaManager() {
             <span>Loading media library...</span>
           </div>
         ) : media.length === 0 ? (
-          <div className="space-y-4 text-center py-8">
-            <p className="text-xs text-[var(--text-muted)]">
-              Core platform images are active in /public/images/. You can register items into the media manager above.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-              {[
-                { name: "Hero Tap Photo", url: "/images/merqato-hero-tap.jpg" },
-                { name: "Product Tags Studio", url: "/images/merqato-product-tags.jpg" },
-                { name: "Teak Standup Macro", url: "/images/merqato-standup-teak.jpg" },
-                { name: "NFC Stickers Macro", url: "/images/merqato-nfc-stickers-macro.jpg" },
-              ].map((item, idx) => (
-                <div key={idx} className="p-3 rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] space-y-2">
-                  <div className="relative aspect-video rounded-xl overflow-hidden bg-neutral-900">
-                    <Image src={item.url} alt={item.name} fill className="object-cover" />
-                  </div>
-                  <p className="text-[11px] font-bold text-[var(--text-primary)] truncate">{item.name}</p>
-                  <p className="text-[10px] font-mono text-[var(--text-muted)] truncate">{item.url}</p>
-                </div>
-              ))}
+          <div className="space-y-4 text-center py-10">
+            <div className="w-10 h-10 mx-auto rounded-2xl bg-[var(--bg-page)] border border-[var(--border-subtle)] flex items-center justify-center">
+              <ImageIcon className="w-4 h-4 text-[var(--text-muted)]" />
             </div>
+            <div>
+              <p className="text-sm font-semibold text-[var(--text-primary)]">No media yet</p>
+              <p className="mt-1 text-xs text-[var(--text-muted)]">
+                Upload your product photography and site imagery, then copy each URL into the relevant
+                admin section — products, industries or use cases.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsAdding(true)}
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[var(--text-primary)] text-[var(--bg-page)] text-xs font-semibold hover:opacity-90 shadow-xs cursor-pointer"
+            >
+              <Plus className="w-3.5 h-3.5" />
+              <span>Upload your first image</span>
+            </button>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
