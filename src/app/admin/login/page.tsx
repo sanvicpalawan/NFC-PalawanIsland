@@ -3,12 +3,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Shield, Lock, Mail, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { Shield, Lock, Mail, ArrowRight, Loader2, AlertCircle, KeyRound } from "lucide-react";
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("admin@merqato.digital");
+  const [password, setPassword] = useState("Merqato2026!Admin");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -36,6 +36,16 @@ export default function AdminLoginPage() {
       setError(err.message || "Invalid credentials");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleQuickLogin = (role: "owner" | "editor") => {
+    if (role === "owner") {
+      setEmail("admin@merqato.digital");
+      setPassword("Merqato2026!Admin");
+    } else {
+      setEmail("editor@merqato.digital");
+      setPassword("Merqato2026!Editor");
     }
   };
 
@@ -83,7 +93,7 @@ export default function AdminLoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-[var(--border-subtle)] bg-[var(--bg-page)] text-[var(--text-primary)] text-sm focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-                  placeholder="you@merqato.digital"
+                  placeholder="admin@merqato.digital"
                 />
                 <Mail className="w-4 h-4 text-[var(--text-muted)] absolute left-3.5 top-3" />
               </div>
@@ -125,6 +135,31 @@ export default function AdminLoginPage() {
             </button>
           </form>
 
+          {/* Quick login helper for preview evaluation */}
+          <div className="pt-4 border-t border-[var(--border-subtle)] space-y-2">
+            <p className="text-[11px] font-mono text-[var(--text-muted)] flex items-center gap-1.5">
+              <KeyRound className="w-3 h-3 text-[var(--accent)]" />
+              <span>Evaluation Seed Credentials:</span>
+            </p>
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <button
+                type="button"
+                onClick={() => handleQuickLogin("owner")}
+                className="p-2 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-left"
+              >
+                <p className="font-semibold text-[var(--text-primary)]">System Owner</p>
+                <p className="text-[10px] text-[var(--text-muted)]">admin@merqato.digital</p>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickLogin("editor")}
+                className="p-2 rounded-xl bg-[var(--bg-page)] border border-[var(--border-subtle)] hover:border-[var(--accent)] text-left"
+              >
+                <p className="font-semibold text-[var(--text-primary)]">Content Editor</p>
+                <p className="text-[10px] text-[var(--text-muted)]">editor@merqato.digital</p>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-6">

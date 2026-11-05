@@ -3,7 +3,7 @@ import { db } from "@/db";
 import { admins } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
-import { COOKIE_NAME, createSessionToken, logAudit } from "@/lib/auth";
+import { createSessionToken, logAudit } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
 
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
     });
 
     res.cookies.set({
-      name: COOKIE_NAME,
+      name: "merqato_admin_session",
       value: token,
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",

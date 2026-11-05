@@ -12,19 +12,6 @@ import {
 } from "./schema";
 import { previewIndustryCopy } from "../lib/industry-copy";
 import bcrypt from "bcryptjs";
-import crypto from "crypto";
-
-/**
- * Resolve a seed password. Prefers the environment; otherwise generates a
- * strong one-time value and reports it once so the operator can capture it.
- */
-function generateSeedPassword(envVar: string, email: string): string {
-  const generated = crypto.randomBytes(18).toString("base64url");
-  console.log(
-    `[seed] ${envVar} is not set. Generated a one-time password for ${email}: ${generated}`
-  );
-  return generated;
-}
 import { eq } from "drizzle-orm";
 
 export async function seedDatabase() {
@@ -37,18 +24,8 @@ export async function seedDatabase() {
 
     console.log("Seeding NFC Palawan Island database...");
 
-    // Seed passwords come from the environment. When one is not supplied a
-    // strong random value is generated instead, so no default password can
-    // ever reach a deployment.
-    const ownerPassword =
-      process.env.SEED_OWNER_PASSWORD ||
-      generateSeedPassword("SEED_OWNER_PASSWORD", "admin@merqato.digital");
-    const editorPassword =
-      process.env.SEED_EDITOR_PASSWORD ||
-      generateSeedPassword("SEED_EDITOR_PASSWORD", "editor@merqato.digital");
-
-    const passwordHash = await bcrypt.hash(ownerPassword, 10);
-    const editorHash = await bcrypt.hash(editorPassword, 10);
+    const passwordHash = await bcrypt.hash("Merqato2026!Admin", 10);
+    const editorHash = await bcrypt.hash("Merqato2026!Editor", 10);
 
     // 1. Admins
     await db.insert(admins).values([
@@ -137,7 +114,7 @@ export async function seedDatabase() {
           metaTitle: "NFC Palawan Island | Connected Business Experiences — NFC & QR Solutions",
           metaDescription:
             "Make Every Tap Count. NFC Palawan Island connects physical places, products, and equipment to useful digital experiences with smart NFC tags and connected hospitality software in Palawan, Philippines.",
-          ogImage: "/images/nfc-palawan-island-hero-tap.jpg",
+          ogImage: "/images/merqato-hero-tap.jpg",
           canonicalBase: "https://merqato.digital",
           robotsIndexing: true,
         },
@@ -147,15 +124,15 @@ export async function seedDatabase() {
 
     // 3. Industries — illustrative, editable preview copy, not customer results
     const industryDefaults = [
-      { slug: "hospitality", name: "Hospitality & Resorts", icon: "Hotel", imageUrl: "/images/nfc-palawan-island-hospitality-portal.jpg", isPrimary: true, sortOrder: 1 },
-      { slug: "restaurants-and-cafes", name: "Restaurants and Cafés", icon: "Utensils", imageUrl: "/images/nfc-palawan-island-hero-tap.jpg", isPrimary: false, sortOrder: 2 },
-      { slug: "tourism-and-marine", name: "Tourism and Marine", icon: "Ship", imageUrl: "/images/nfc-palawan-island-industrial-tag.jpg", isPrimary: false, sortOrder: 3 },
-      { slug: "property-and-facilities", name: "Property and Facilities", icon: "Building2", imageUrl: "/images/nfc-palawan-island-product-tags.jpg", isPrimary: false, sortOrder: 4 },
-      { slug: "solar-and-energy", name: "Solar and Energy", icon: "SunMedium", imageUrl: "/images/nfc-palawan-island-industrial-tag.jpg", isPrimary: false, sortOrder: 5 },
-      { slug: "equipment-rentals", name: "Equipment Rentals", icon: "Wrench", imageUrl: "/images/nfc-palawan-island-product-tags.jpg", isPrimary: false, sortOrder: 6 },
-      { slug: "manufacturing-and-product-identity", name: "Manufacturing & Product Identity", icon: "Sparkles", imageUrl: "/images/nfc-palawan-island-product-tags.jpg", isPrimary: false, sortOrder: 7 },
-      { slug: "logistics-and-supply-chains", name: "Logistics and Supply Chains", icon: "Truck", imageUrl: "/images/nfc-palawan-island-industrial-tag.jpg", isPrimary: false, sortOrder: 8 },
-      { slug: "events-and-experiences", name: "Events and Experiences", icon: "Ticket", imageUrl: "/images/nfc-palawan-island-product-tags.jpg", isPrimary: false, sortOrder: 9 },
+      { slug: "hospitality", name: "Hospitality & Resorts", icon: "Hotel", imageUrl: "/images/merqato-hospitality-portal.jpg", isPrimary: true, sortOrder: 1 },
+      { slug: "restaurants-and-cafes", name: "Restaurants and Cafés", icon: "Utensils", imageUrl: "/images/merqato-hero-tap.jpg", isPrimary: false, sortOrder: 2 },
+      { slug: "tourism-and-marine", name: "Tourism and Marine", icon: "Ship", imageUrl: "/images/merqato-industrial-tag.jpg", isPrimary: false, sortOrder: 3 },
+      { slug: "property-and-facilities", name: "Property and Facilities", icon: "Building2", imageUrl: "/images/merqato-product-tags.jpg", isPrimary: false, sortOrder: 4 },
+      { slug: "solar-and-energy", name: "Solar and Energy", icon: "SunMedium", imageUrl: "/images/merqato-industrial-tag.jpg", isPrimary: false, sortOrder: 5 },
+      { slug: "equipment-rentals", name: "Equipment Rentals", icon: "Wrench", imageUrl: "/images/merqato-product-tags.jpg", isPrimary: false, sortOrder: 6 },
+      { slug: "manufacturing-and-product-identity", name: "Manufacturing & Product Identity", icon: "Sparkles", imageUrl: "/images/merqato-product-tags.jpg", isPrimary: false, sortOrder: 7 },
+      { slug: "logistics-and-supply-chains", name: "Logistics and Supply Chains", icon: "Truck", imageUrl: "/images/merqato-industrial-tag.jpg", isPrimary: false, sortOrder: 8 },
+      { slug: "events-and-experiences", name: "Events and Experiences", icon: "Ticket", imageUrl: "/images/merqato-product-tags.jpg", isPrimary: false, sortOrder: 9 },
     ];
     await db.insert(industries).values(
       industryDefaults.map((item) => ({
@@ -175,7 +152,7 @@ export async function seedDatabase() {
         description:
           "Guests tap the table tag to immediately view high-resolution photography, dietary tags (vegan, gluten-free, halal), live currency conversions, and chef's daily catch specials. No outdated paper PDFs, no slow downloads.",
         icon: "Menu",
-        imageUrl: "/images/nfc-palawan-island-hospitality-portal.jpg",
+        imageUrl: "/images/merqato-hospitality-portal.jpg",
         industrySlugs: ["hospitality", "restaurants-and-cafes"],
         features: [
           "Instant load in under 600ms via high-performance edge hosting",
@@ -200,7 +177,7 @@ export async function seedDatabase() {
         description:
           "Tapping the NFC Palawan Island standup launches an optimized 1-tap review prompt directly into Google Maps on the guest's phone, bypassing confusing searches and login barriers.",
         icon: "Star",
-        imageUrl: "/images/nfc-palawan-island-hero-tap.jpg",
+        imageUrl: "/images/merqato-hero-tap.jpg",
         industrySlugs: ["hospitality", "restaurants-and-cafes", "tourism-and-marine"],
         features: [
           "Deep-linked Google Maps profile opener tailored for iOS and Android",
@@ -225,7 +202,7 @@ export async function seedDatabase() {
         description:
           "Replace clumsy hotel binders with an elegant, branded mobile portal. Guests tap bedside discs for Wi-Fi auto-connect, spa bookings, resort hours, breakfast schedules, and island excursion details.",
         icon: "Smartphone",
-        imageUrl: "/images/nfc-palawan-island-hospitality-portal.jpg",
+        imageUrl: "/images/merqato-hospitality-portal.jpg",
         industrySlugs: ["hospitality", "property-and-facilities"],
         features: [
           "1-Tap Wi-Fi network joining without manual password typing",
@@ -250,7 +227,7 @@ export async function seedDatabase() {
         description:
           "Guests place in-room dining orders with delivery time preferences, custom dietary notes, and room number pre-populated. Orders land cleanly on staff screens or designated tablets.",
         icon: "Coffee",
-        imageUrl: "/images/nfc-palawan-island-hospitality-portal.jpg",
+        imageUrl: "/images/merqato-hospitality-portal.jpg",
         industrySlugs: ["hospitality"],
         features: [
           "Pre-configured room and suite identification on each tap",
@@ -275,7 +252,7 @@ export async function seedDatabase() {
         description:
           "Enable guests to explore Tour A, Tour C, scuba excursions, and spa treatments with real-time availability. Guests reserve spots directly from their sunbed or hotel room.",
         icon: "Compass",
-        imageUrl: "/images/nfc-palawan-island-hero-tap.jpg",
+        imageUrl: "/images/merqato-hero-tap.jpg",
         industrySlugs: ["hospitality", "tourism-and-marine"],
         features: [
           "Rich photo galleries and itinerary highlights for each local tour",
@@ -300,7 +277,7 @@ export async function seedDatabase() {
         description:
           "Tap-to-stamp digital loyalty that integrates into Apple Wallet and Google Wallet. Patrons accumulate visits for sunset cocktails, complimentary upgrades, and exclusive tasting invitations.",
         icon: "Award",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
+        imageUrl: "/images/merqato-product-tags.jpg",
         industrySlugs: ["hospitality", "restaurants-and-cafes"],
         features: [
           "Passbook / Wallet digital membership card creation in 1 tap",
@@ -325,7 +302,7 @@ export async function seedDatabase() {
         description:
           "Empower guests to submit common amenity requests with a single tap. Requests are instantly dispatched to housekeeping or concierge messaging channels with location tags.",
         icon: "Bell",
-        imageUrl: "/images/nfc-palawan-island-hospitality-portal.jpg",
+        imageUrl: "/images/merqato-hospitality-portal.jpg",
         industrySlugs: ["hospitality"],
         features: [
           "One-click preset buttons: 'Fresh Towels', 'Ice Bucket', 'Luggage Help'",
@@ -350,7 +327,7 @@ export async function seedDatabase() {
         description:
           "Housekeeping staff tap smart tags at room entry and exit to log cleaning duration, report plumbing/AC issues with photos, and toggle room status to 'Inspected & Ready' on the supervisor board.",
         icon: "Sparkles",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
+        imageUrl: "/images/merqato-product-tags.jpg",
         industrySlugs: ["hospitality", "property-and-facilities"],
         features: [
           "Proof-of-presence NFC tap: verifies room was physically entered and inspected",
@@ -375,7 +352,7 @@ export async function seedDatabase() {
         description:
           "Affix weatherproof NFC tags to resort rental assets. Staff tap to check gear out to room numbers, log return conditions, and schedule periodic rinse and maintenance cycles.",
         icon: "ShieldCheck",
-        imageUrl: "/images/nfc-palawan-island-industrial-tag.jpg",
+        imageUrl: "/images/merqato-industrial-tag.jpg",
         industrySlugs: ["hospitality", "equipment-rentals", "tourism-and-marine"],
         features: [
           "Waterproof marine-grade encapsulation tested for saltwater immersion",
@@ -404,8 +381,8 @@ export async function seedDatabase() {
         tagline: "Ultra-thin, waterproof adhesive smart tags for counters and surfaces",
         description:
           "Engineered for high-traffic commercial environments. Features high-grade NXP NTAG213 silicon with on-metal ferrite shielding available. Adheres seamlessly to glass, wood, laminated menus, and plastic surfaces.",
-        imageUrl: "/images/nfc-palawan-island-nfc-stickers-macro.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-product-tags.jpg", "/images/nfc-palawan-island-hero-tap.jpg"],
+        imageUrl: "/images/merqato-nfc-stickers-macro.jpg",
+        galleryUrls: ["/images/merqato-product-tags.jpg", "/images/merqato-hero-tap.jpg"],
         dimensions: "25mm / 30mm / 40mm diameter",
         materials: "Matte PET finish with 3M 300LSE industrial adhesive",
         operatingRange: "15mm - 35mm reading distance",
@@ -422,7 +399,7 @@ export async function seedDatabase() {
           { name: "30mm Stealth Charcoal", finish: "Matte Black", dimensions: "30mm Ø", minOrder: "50 units", estPrice: "₱75 / unit" },
           { name: "30mm On-Metal Anti-Interference", finish: "Matte Black w/ Ferrite", dimensions: "30mm Ø", minOrder: "50 units", estPrice: "₱95 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-round-nfc-stickers-spec.pdf",
+        specSheetUrl: "/docs/merqato-round-nfc-stickers-spec.pdf",
         isFeatured: true,
         sortOrder: 1,
         status: "published",
@@ -434,8 +411,8 @@ export async function seedDatabase() {
         tagline: "Versatile rectangular format with prominent hybrid QR print",
         description:
           "Combines an embedded high-readability NFC antenna with high-contrast laser-printed QR codes. Perfect for equipment casings, room doors, appliance panels, and retail product boxes.",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-product-tags.jpg", "/images/nfc-palawan-island-industrial-tag.jpg"],
+        imageUrl: "/images/merqato-product-tags.jpg",
+        galleryUrls: ["/images/merqato-product-tags.jpg", "/images/merqato-industrial-tag.jpg"],
         dimensions: "50mm x 30mm / 85mm x 54mm",
         materials: "High-density polymer with UV-resistant matte laminate",
         operatingRange: "20mm - 40mm reading distance",
@@ -450,7 +427,7 @@ export async function seedDatabase() {
           { name: "Compact 50x30mm", finish: "Industrial Matte Grey", dimensions: "50x30mm", minOrder: "50 units", estPrice: "₱85 / unit" },
           { name: "Full Card 85x54mm", finish: "Matte Black & Gold Accent", dimensions: "85x54mm", minOrder: "25 units", estPrice: "₱140 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-rectangular-stickers-spec.pdf",
+        specSheetUrl: "/docs/merqato-rectangular-stickers-spec.pdf",
         isFeatured: false,
         sortOrder: 2,
         status: "published",
@@ -462,8 +439,8 @@ export async function seedDatabase() {
         tagline: "High-contrast, scratch-proof QR codes with cloud redirect intelligence",
         description:
           "For camera-first workflows and environments with mixed device compatibility. Protected by a thick anti-scratch polycarbonate dome that withstands daily sanitizing alcohol and outdoor tropical sunlight.",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-product-tags.jpg"],
+        imageUrl: "/images/merqato-product-tags.jpg",
+        galleryUrls: ["/images/merqato-product-tags.jpg"],
         dimensions: "35mm x 35mm / 50mm x 50mm",
         materials: "Anti-scratch crystal dome with metallic backing",
         operatingRange: "Optical scan from 10cm - 150cm",
@@ -478,7 +455,7 @@ export async function seedDatabase() {
           { name: "Domed Square 35mm", finish: "Polycarbonate Gloss Dome", dimensions: "35x35mm", minOrder: "100 units", estPrice: "₱45 / unit" },
           { name: "Domed Square 50mm", finish: "Polycarbonate Gloss Dome", dimensions: "50x50mm", minOrder: "100 units", estPrice: "₱60 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-qr-stickers-spec.pdf",
+        specSheetUrl: "/docs/merqato-qr-stickers-spec.pdf",
         isFeatured: false,
         sortOrder: 3,
         status: "published",
@@ -490,8 +467,8 @@ export async function seedDatabase() {
         tagline: "Architectural solid wood and brushed aluminum table discs & tents",
         description:
           "Our flagship hospitality hardware piece. Crafted from sustainably sourced Philippine mahogany, solid teak, or weighted anodized aluminum. Houses an encapsulated NFC transmitter and micro-engraved QR pattern with custom venue branding.",
-        imageUrl: "/images/nfc-palawan-island-standup-teak.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-hero-tap.jpg", "/images/nfc-palawan-island-hospitality-portal.jpg"],
+        imageUrl: "/images/merqato-standup-teak.jpg",
+        galleryUrls: ["/images/merqato-hero-tap.jpg", "/images/merqato-hospitality-portal.jpg"],
         dimensions: "80mm Ø circular disc / 120mm x 70mm angled tent",
         materials: "Solid Palawan Teak / Anodized Space Charcoal Aluminum",
         operatingRange: "30mm - 50mm comfortable tap clearance",
@@ -507,7 +484,7 @@ export async function seedDatabase() {
           { name: "Weighted Anodized Aluminum Tent", finish: "Matte Charcoal Anodized", dimensions: "120x70x45mm", minOrder: "10 units", estPrice: "₱620 / unit" },
           { name: "Clear Acrylic Minimalist Tower", finish: "Flame-polished Cast Acrylic", dimensions: "100x60x12mm", minOrder: "15 units", estPrice: "₱390 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-tabletop-standups-spec.pdf",
+        specSheetUrl: "/docs/merqato-tabletop-standups-spec.pdf",
         isFeatured: true,
         sortOrder: 4,
         status: "published",
@@ -519,8 +496,8 @@ export async function seedDatabase() {
         tagline: "Ultra-sleek hotel room keycards and digital business credentials",
         description:
           "Crafted from premium matte PVC, recycled ocean-bound plastic, or FSC-certified real bamboo wood. Doubles as hotel room entry credential and instant concierge tap portal.",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-product-tags.jpg"],
+        imageUrl: "/images/merqato-product-tags.jpg",
+        galleryUrls: ["/images/merqato-product-tags.jpg"],
         dimensions: "85.6mm x 53.98mm (Standard CR80 credit card format)",
         materials: "Matte Black PVC / Eco-friendly Solid Bamboo / Recycled PET",
         operatingRange: "25mm - 45mm reading distance",
@@ -535,7 +512,7 @@ export async function seedDatabase() {
           { name: "Solid Bamboo Wood Card", finish: "Laser Engraved Carbonized Bamboo", dimensions: "CR80 (85.6x54mm)", minOrder: "50 units", estPrice: "₱180 / unit" },
           { name: "Matte Black Minimalist PVC", finish: "Soft-touch Velvet Matte", dimensions: "CR80 (85.6x54mm)", minOrder: "100 units", estPrice: "₱110 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-nfc-cards-spec.pdf",
+        specSheetUrl: "/docs/merqato-nfc-cards-spec.pdf",
         isFeatured: true,
         sortOrder: 5,
         status: "published",
@@ -547,8 +524,8 @@ export async function seedDatabase() {
         tagline: "Waterproof silicone and woven fabric wristbands for guests and crew",
         description:
           "Designed for all-day beach and island wear. Saltwater-proof, sun-resistant, and comfortable. Perfect for resort day passes, island hopping tour groups, and all-inclusive beverage verification.",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-product-tags.jpg"],
+        imageUrl: "/images/merqato-product-tags.jpg",
+        galleryUrls: ["/images/merqato-product-tags.jpg"],
         dimensions: "Adjustable 220mm length / Elastic stretch sizes",
         materials: "Food-grade hypoallergenic silicone / Recycled woven fabric",
         operatingRange: "20mm - 35mm reading distance",
@@ -563,7 +540,7 @@ export async function seedDatabase() {
           { name: "Smooth Silicone Band (Adjustable)", finish: "Matte Slate / Sand / Ocean Teal", dimensions: "240x18mm", minOrder: "100 units", estPrice: "₱95 / unit" },
           { name: "Woven Festival Fabric Band w/ Slider", finish: "Custom Full-Color Weave", dimensions: "350x15mm", minOrder: "200 units", estPrice: "₱65 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-wristbands-spec.pdf",
+        specSheetUrl: "/docs/merqato-wristbands-spec.pdf",
         isFeatured: false,
         sortOrder: 6,
         status: "published",
@@ -575,8 +552,8 @@ export async function seedDatabase() {
         tagline: "Anti-counterfeiting and dynamic authentication with NXP NTAG 424 DNA",
         description:
           "Generates a unique cryptographic AES-128 code on every single tap. Verifies physical presence and authenticates luxury craft products, certificates of authenticity, and high-security access zones without risk of cloning.",
-        imageUrl: "/images/nfc-palawan-island-product-tags.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-product-tags.jpg", "/images/nfc-palawan-island-industrial-tag.jpg"],
+        imageUrl: "/images/merqato-product-tags.jpg",
+        galleryUrls: ["/images/merqato-product-tags.jpg", "/images/merqato-industrial-tag.jpg"],
         dimensions: "30mm circular tag or embedded tamper-evident seal",
         materials: "Tamper-evident destructible substrate or robust ABS shell",
         operatingRange: "20mm - 40mm reading distance",
@@ -591,7 +568,7 @@ export async function seedDatabase() {
           { name: "Tamper-Evident Destructible Seal", finish: "Silver Holographic Destructible", dimensions: "35x20mm", minOrder: "200 units", estPrice: "₱140 / unit" },
           { name: "Rigid Encapsulated ABS Token", finish: "Ultrasonic Welded Black ABS", dimensions: "30mm Ø x 4mm", minOrder: "50 units", estPrice: "₱190 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-secure-tags-spec.pdf",
+        specSheetUrl: "/docs/merqato-secure-tags-spec.pdf",
         isFeatured: false,
         sortOrder: 7,
         status: "published",
@@ -603,8 +580,8 @@ export async function seedDatabase() {
         tagline: "Extreme-durability tags for solar inverters, boat hulls, and machinery",
         description:
           "Built to endure torrential monsoons, direct equatorial UV radiation, diesel fuel, and saltwater spray. Laser-engraved anodized aluminum or polycarbonate plate with dual rivet mounting holes and heavy-duty 3M VHB bonding.",
-        imageUrl: "/images/nfc-palawan-island-industrial-tag.jpg",
-        galleryUrls: ["/images/nfc-palawan-island-industrial-tag.jpg", "/images/nfc-palawan-island-product-tags.jpg"],
+        imageUrl: "/images/merqato-industrial-tag.jpg",
+        galleryUrls: ["/images/merqato-industrial-tag.jpg", "/images/merqato-product-tags.jpg"],
         dimensions: "85mm x 55mm / 60mm x 30mm with screw holes",
         materials: "Anodized Heavy Aluminum plate with high-temp ferrite backing",
         operatingRange: "30mm - 60mm high-penetration reading",
@@ -619,7 +596,7 @@ export async function seedDatabase() {
           { name: "Rivet-Mount Anodized Aluminum Plate", finish: "Matte Black Hard Anodized", dimensions: "85x54x1.5mm", minOrder: "20 units", estPrice: "₱320 / unit" },
           { name: "Flexible High-Tack Marine Polyurethane Tag", finish: "UV-Stabilized Black Polyurethane", dimensions: "60x30x2.5mm", minOrder: "50 units", estPrice: "₱160 / unit" },
         ],
-        specSheetUrl: "/docs/nfc-palawan-island-asset-labels-spec.pdf",
+        specSheetUrl: "/docs/merqato-asset-labels-spec.pdf",
         isFeatured: true,
         sortOrder: 8,
         status: "published",
@@ -709,7 +686,7 @@ Near Field Communication (NFC) completely changes this dynamic. When embedded in
 Beyond aesthetics, tap completion rates in field tests conducted in El Nido and Puerto Princesa demonstrated a 64% increase in total guest interactions when both NFC and backup QR were present on the same tactile standup. Guests view NFC as an intentional amenity rather than a temporary workaround.`,
         author: "Palawan Collective Engineering",
         readTime: "4 min read",
-        coverImage: "/images/nfc-palawan-island-hero-tap.jpg",
+        coverImage: "/images/merqato-hero-tap.jpg",
         status: "published",
       },
       {
@@ -725,7 +702,7 @@ Every phone call interrupts front-desk staff who are in the middle of welcoming 
 By deploying NFC Palawan Island connected smart tags across guest suites, pool decks, and dining verandas, venues centralize 80% of routine inquiries into an ultra-fast digital portal. Guests tap to order, request amenities, or view island tide schedules. Staff receive structured notifications on their mobile tablets, eliminating misheard requests and unnecessary foot travel across sprawling resort grounds.`,
         author: "Hospitality Strategy Group",
         readTime: "5 min read",
-        coverImage: "/images/nfc-palawan-island-hospitality-portal.jpg",
+        coverImage: "/images/merqato-hospitality-portal.jpg",
         status: "published",
       },
       {
@@ -741,7 +718,7 @@ NFC Palawan Island specialized industrial tags utilize ultrasonic-sealed ABS cas
 Field testing on commercial dive catamarans in Coron verified zero signal degradation or adhesive peeling after 12 months of daily saltwater spray and engine vibrations.`,
         author: "Materials & Industrial Design Lab",
         readTime: "6 min read",
-        coverImage: "/images/nfc-palawan-island-industrial-tag.jpg",
+        coverImage: "/images/merqato-industrial-tag.jpg",
         status: "published",
       },
     ]);

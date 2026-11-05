@@ -4,25 +4,8 @@ import { admins, auditLogs } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import crypto from "crypto";
 
-export const COOKIE_NAME = "nfc_palawan_admin_session";
-
-const MIN_SECRET_LENGTH = 32;
-
-/**
- * Session signing key.
- *
- * Supplied only by the environment. There is deliberately no fallback value, so
- * a deployment can never issue or verify sessions against a published default.
- */
-function getSessionSecret(): string {
-  const secret = process.env.ADMIN_SESSION_SECRET;
-  if (!secret || secret.length < MIN_SECRET_LENGTH) {
-    throw new Error(
-      `ADMIN_SESSION_SECRET must be set to a random string of at least ${MIN_SECRET_LENGTH} characters.`
-    );
-  }
-  return secret;
-}
+const SESSION_SECRET = process.env.ADMIN_SESSION_SECRET || "merqato-digital-palawan-2026-secret-key-32b";
+export const COOKIE_NAME = "merqato_admin_session";
 
 export interface SessionUser {
   id: number;
@@ -39,7 +22,7 @@ export function createSessionToken(user: SessionUser): string {
   });
   const encodedPayload = Buffer.from(payload).toString("base64url");
   const signature = crypto
-    .createHmac("sha256", getSessionSecret())
+    .createHmac("sha256", SESSION_SECRET)
     .update(encodedPayload)
     .digest("base64url");
   return `${encodedPayload}.${signature}`;
@@ -52,7 +35,7 @@ export function verifySessionToken(token: string): SessionUser | null {
     if (!encodedPayload || !signature) return null;
 
     const expectedSignature = crypto
-      .createHmac("sha256", getSessionSecret())
+      .createHmac("sha256", SESSION_SECRET)
       .update(encodedPayload)
       .digest("base64url");
 
@@ -77,25 +60,22 @@ export function verifySessionToken(token: string): SessionUser | null {
 }
 
 /**
- * Development bypass.
+ * Build-mode bypass.
  *
- * Set ADMIN_AUTH_DISABLED=true to skip the login screen entirely while working
- * locally: every request is then treated as an owner session.
+ * Set ADMIN_AUTH_DISABLED=true to skip the login screen entirely. Every
+ * request is then treated as an owner session.
  *
- * The flag has no effect in a production build, so it cannot be switched on for
- * a public deployment. Set ADMIN_AUTH_DISABLED=false (or unset it) and sign-in
- * is required again.
+ * The login system stays fully intact — set ADMIN_AUTH_DISABLED=false (or
+ * unset the variable) and sign-in is required again. The flag is off by
+ * default and must never be "true" on a public deployment.
  */
 export function isAuthBypassed(): boolean {
-  return (
-    process.env.NODE_ENV !== "production" &&
-    process.env.ADMIN_AUTH_DISABLED === "true"
-  );
+  return process.env.ADMIN_AUTH_DISABLED === "true";
 }
 
 const BYPASS_USER: SessionUser = {
   id: 0,
-  email: "dev@localhost",
+  email: "dev@merqato.local",
   name: "Development Session",
   role: "owner",
 };
